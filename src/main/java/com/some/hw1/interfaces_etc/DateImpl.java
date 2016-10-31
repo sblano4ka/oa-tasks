@@ -15,6 +15,16 @@ public class DateImpl implements Date {
         this.year = new Year(year);
     }
 
+
+    @Override
+    public String toString() {
+        return "DateImpl{" +
+                "day=" + day.getDay() +
+                ", month=" + month.getMonth() +
+                ", year=" + year.getYear() +
+                '}';
+    }
+
     @Override
     public int getDayOfYear() {
         //
@@ -29,7 +39,7 @@ public class DateImpl implements Date {
 
     @Override
     public DayOfWeek getDayOfWeek() {
-        return null;
+        return DayOfWeek.valueOf(day.getDay());
     }
 
     static class Year{

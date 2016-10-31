@@ -20,7 +20,7 @@ public enum DayOfWeek {
             case 4: return FRIDAY;
             case 5: return SATURDAY;
             case 6: return SUNDAY;
-            default:return null;
+            default: throw new IllegalArgumentException("Day number should be in range of 0-6");
         }
     }
 
