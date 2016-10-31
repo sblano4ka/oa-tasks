@@ -1,4 +1,4 @@
-package com.some.hw1.nested_classes;
+package com.some.hw1.interfaces_etc;
 
 /**
  * Created by User on 10/30/2016.
@@ -51,8 +51,8 @@ public class DateImpl implements Date {
             return ((year % 4 == 0&&year%100!=0)||(year%400==0));
         }
 
-
     }
+
     static class Month {
         public int getMonth() {
             return month;
