@@ -32,7 +32,7 @@ public class DateImpl implements Date {
     }
 
     @Override
-    public int daysBetween(Object object) {
+    public int daysBetween(Date date) {
 
         return 0;
     }

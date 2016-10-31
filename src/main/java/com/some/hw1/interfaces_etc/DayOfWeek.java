@@ -14,7 +14,7 @@ public enum DayOfWeek {
     public static DayOfWeek valueOf (int index){
         switch (index){
         case 0: return MONDAY;
-            case 1: return THURSDAY;
+            case 1: return TUESDAY;
             case 2: return WEDNESDAY;
             case 3: return THURSDAY;
             case 4: return FRIDAY;
