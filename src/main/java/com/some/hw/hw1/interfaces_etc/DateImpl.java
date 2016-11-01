@@ -1,4 +1,4 @@
-package com.some.hw1.interfaces_etc;
+package com.some.hw.hw1.interfaces_etc;
 
 /**
  * Created by User on 10/30/2016.
@@ -8,7 +8,7 @@ public class DateImpl implements Date {
     private Month month;
     private Year year;
 
-    //@TODO Get the fucking pen and get the fucking logic together on the peace of fucking paper you stupid fuck!
+    //@TODO Get logic together
     public DateImpl(int day, int month, int year){
         this.day = new Day(day);
         this.month = new Month(month);

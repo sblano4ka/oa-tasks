@@ -1,4 +1,4 @@
-package com.some.hw1.interfaces_etc;
+package com.some.hw.hw1.interfaces_etc;
 
 /**
  * Created by User on 10/30/2016.
