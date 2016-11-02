@@ -24,7 +24,7 @@ public class Student implements StudentInterface {
     @Override
     public int getHighestGrade(){return 0;}
 
-
+// divide into separate classes all three
     @Override
     public void addGrade(Object object){
         List<Object> list = new LinkedList<Object>();
