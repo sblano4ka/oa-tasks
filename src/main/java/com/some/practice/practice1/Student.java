@@ -1,6 +1,7 @@
 package com.some.practice.practice1;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,8 +23,13 @@ public class Student implements StudentInterface {
 
     @Override
     public int getHighestGrade(){return 0;}
+
+
     @Override
-    public void addGrade(){}
+    public void addGrade(Object object){
+        List<Object> list = new LinkedList<Object>();
+        list.add(object);
+    }
     @Override
     public void removeGradeByFaculty() throws Exception{}
     @Override
