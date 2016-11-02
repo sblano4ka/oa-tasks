@@ -6,7 +6,7 @@ package com.some.practice.practice1;
 public interface StudentInterface {
 
      int getHighestGrade();
-     void addGrade(Object object);
+     void addGrade(Exam exam);
      void removeGradeByFaculty()throws Exception;
      void countOfExamsByGrade();
      int getAverage();
