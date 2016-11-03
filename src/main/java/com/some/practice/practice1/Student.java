@@ -1,5 +1,7 @@
 package com.some.practice.practice1;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Student implements StudentInterface {
     private String surname;
     private String group;
     private List<Exam> examsList;
+    private Exam exam;
 
 
     public Student(String name, String surname, String group) {
@@ -53,8 +56,35 @@ public class Student implements StudentInterface {
         this.examsList = examsList;
     }
 
-    @Override
-    public int getHighestGrade(){return 0;}
+    /*@Override
+    public int getHighestGrade(String examName){
+
+        int occurrences = Collections.frequency(examsList, examName);
+
+        int grade=0;
+        examsList.sort((Exam e1, Exam e2)->e2.getGrade()-e1.getGrade());
+
+        for(Exam exam:examsList){
+            if(
+            exam.getDiscipline().equals(examName)){
+                grade=exam.getGrade();
+            }
+        }
+        return grade;
+       // return examsList.get(0).getGrade();
+        }*/
+
+    public int getHighestGrade(String name, List<Exam> examListz) throws NullPointerException{
+       try{
+        examListz.sort((Exam e1, Exam e2) -> e1.getGrade() - e2.getGrade());
+        HashMap<String, Integer> map= new HashMap<>();
+        for (Exam anExamListz : examListz) {
+            map.put(anExamListz.getDiscipline(), anExamListz.getGrade());
+        }
+        return map.get(name);}
+       catch (NullPointerException e){throw new NullPointerException("no such exam");
+       }
+    }
 
 // divide into separate classes all three
 
