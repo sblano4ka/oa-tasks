@@ -8,6 +8,19 @@ import java.util.List;
  */
 public class Student implements StudentInterface {
 
+    private String name;
+    private String surname;
+    private String group;
+    private List<Exam> examsList;
+
+
+    public Student(String name, String surname, String group) {
+        this.name = name;
+        this.surname = surname;
+        this.group = group;
+        this.examsList = new LinkedList<Exam>();
+    }
+
     public String getName() {
         return name;
     }
@@ -40,19 +53,6 @@ public class Student implements StudentInterface {
         this.examsList = examsList;
     }
 
-    private String name;
-    private String surname;
-    private String group;
-    private List<Exam> examsList;
-
-
-    public Student(String name, String surname, String group) {
-        this.name = name;
-        this.surname = surname;
-        this.group = group;
-        this.examsList = new LinkedList<Exam>();
-    }
-
     @Override
     public int getHighestGrade(){return 0;}
 
@@ -63,7 +63,9 @@ public class Student implements StudentInterface {
     }
 
     @Override
-    public void removeGradeByFaculty() throws Exception{}
+    public void removeGradeByFaculty() throws Exception{
+
+    }
     @Override
     public void countOfExamsByGrade(){}
     @Override
