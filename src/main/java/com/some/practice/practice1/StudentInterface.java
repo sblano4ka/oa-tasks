@@ -9,7 +9,7 @@ public interface StudentInterface {
 
      int getHighestGrade(String name, List<Exam> examListz);
      void addGrade(Exam exam, int grade);
-     void removeGradeByFaculty()throws Exception;
-     void countOfExamsByGrade();
+     void removeGradeByFaculty(Exam exam, int grade)throws Exception;
+     int countOfExamsByGrade(int grade, List<Exam> examListz);
      int getAverage();
 }
