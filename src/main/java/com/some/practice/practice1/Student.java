@@ -88,7 +88,8 @@ public class Student implements StudentInterface {
 
 // divide into separate classes all three
 
-    public void addGrade(Exam exam){
+    public void addGrade(Exam exam, int grade){
+        exam.setGrade(grade);
         examsList.add(exam);
     }
 

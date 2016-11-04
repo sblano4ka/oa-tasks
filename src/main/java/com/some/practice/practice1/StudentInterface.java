@@ -8,7 +8,7 @@ import java.util.List;
 public interface StudentInterface {
 
      int getHighestGrade(String name, List<Exam> examListz);
-     void addGrade(Exam exam);
+     void addGrade(Exam exam, int grade);
      void removeGradeByFaculty()throws Exception;
      void countOfExamsByGrade();
      int getAverage();
