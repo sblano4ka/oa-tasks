@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface StudentInterface {
 
-     int getHighestGrade(String name, List<Exam> examListz);
+     int getHighestGrade(String name);
      void addGrade(Exam exam, int grade);
      void removeGradeByFaculty(Exam exam, int grade)throws Exception;
      int countOfExamsByGrade(int grade, List<Exam> examListz);

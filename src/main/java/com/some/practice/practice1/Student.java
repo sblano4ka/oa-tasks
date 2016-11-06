@@ -24,36 +24,40 @@ public class Student implements StudentInterface {
         this.examsList = examsList;
     }
 
-    public int getHighestGrade(String name, List<Exam> examListz) throws NullPointerException{
-       try{
-        examListz.sort((Exam e1, Exam e2) -> e1.getGrade() - e2.getGrade());
-        HashMap<String, Integer> map= new HashMap<>();
-        for (Exam anExamListz : examListz) {
-            map.put(anExamListz.getDiscipline(), anExamListz.getGrade());
+    public int getHighestGrade(String name) throws NullPointerException {
+        try {
+            examsList.sort((Exam e1, Exam e2) -> e1.getGrade() - e2.getGrade());
+            HashMap<String, Integer> map = new HashMap<>();
+            for (Exam anExamListz : examsList) {
+                map.put(anExamListz.getDiscipline(), anExamListz.getGrade());
+            }
+            return map.get(name);
+        } catch (NullPointerException e) {
+            throw new NullPointerException("no such exam");
         }
-        return map.get(name);}
-       catch (NullPointerException e){throw new NullPointerException("no such exam");
-       }
     }
 
-    public void addGrade(Exam exam, int grade){
+    public void addGrade(Exam exam, int grade) {
         exam.setGrade(grade);
         examsList.add(exam);
     }
 
     @Override
-    public void removeGradeByFaculty(Exam exam, int grade) throws Exception{
+    public void removeGradeByFaculty(Exam exam, int grade) throws Exception {
         exam.setGrade(grade);
-    }
-    @Override
-    public int countOfExamsByGrade(int grade, List<Exam> examListz){
-        ArrayList gradeList = new ArrayList();
-        for(Exam exm:examListz){
-            gradeList.add(exm.getGrade());
-        }
-        return Collections.frequency(gradeList,grade);
     }
 
     @Override
-    public int getAverage(){return 0;}
+    public int countOfExamsByGrade(int grade, List<Exam> examListz) {
+        ArrayList gradeList = new ArrayList();
+        for (Exam exm : examListz) {
+            gradeList.add(exm.getGrade());
+        }
+        return Collections.frequency(gradeList, grade);
+    }
+
+    @Override
+    public int getAverage() {
+        return 0;
+    }
 }
