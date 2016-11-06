@@ -5,6 +5,6 @@ package com.some.hw.hw1.interfaces_etc;
  */
 public interface Date {
     public int getDayOfYear();
-    public int daysBetween(Date date);
+    public int daysBetween(DateImpl date);
     public DayOfWeek getDayOfWeek();
 }

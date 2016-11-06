@@ -5,9 +5,19 @@ package com.some.hw.hw1.interfaces_etc;
  */
 public class Runner {
     public static void main(String[] args) {
-        DateImpl date = new DateImpl(8,2,3);
+        DateImpl date = new DateImpl(10,1,2013);
+        DateImpl date2= new DateImpl(10,1,2009);
+        DateImpl date3 = new DateImpl(31,12,2006);
         String s = date.toString();
-        System.out.println(s + "  " + date.getDayOfWeek());
+
+        System.out.println(date.getDayOfYear());
+        System.out.println(date2.getDayOfYear());
+        System.out.println(s);
+        System.out.println(date.daysBetween(date3));
+        System.out.println(date2.getDayOfWeek());
+
+        // System.out.println(date.leapYear(year.getYear()));
+
 
 
        /* date.getDayOfWeek();
