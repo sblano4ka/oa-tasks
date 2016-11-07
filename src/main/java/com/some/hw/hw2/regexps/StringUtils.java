@@ -32,22 +32,19 @@ public class StringUtils {
             charsList.add(c);
         }
         for (Character aCharsList : charsList) {
-            result = result + aCharsList;
+            result += aCharsList;
         }
         flag = result.equals(inWork);
         return flag;}
 
 
     public static String leftCutRightPad(String string){
-        String result="";
-        result = string.length() > 10 ? string.substring(0, 5) : String.format("%-12s", string).replace(' ', '0');
-        return result;
+        return string.length() > 10 ? string.substring(0, 5) : String.format("%-12s", string).replace(' ', '0');
     }
 
 
     public static String flipWordsInString(String string){
         List<String> list = new ArrayList<>();
-        String result="";
         String[] words=string.split("\\s");
         Collections.addAll(list, words);
         for (int i = 0; i <list.size() ; i++) {
@@ -56,8 +53,7 @@ public class StringUtils {
             list.set(0,end);
             list.set(list.size()-1,start);
         }
-        result = list.toString();
-        return result;
+        return list.toString();
     }
 
 
