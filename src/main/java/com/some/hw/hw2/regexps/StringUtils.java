@@ -1,7 +1,9 @@
 package com.some.hw.hw2.regexps;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by Artem_Iurchenko on 07.11.2016.
@@ -11,7 +13,7 @@ public class StringUtils {
         String result = "";
         List<Character> charsList = new ArrayList<>();
         for(int i=string.length()-1;i>=0;i--){
-            Character c = string.toLowerCase().charAt(i);
+            Character c = string.charAt(i);
             charsList.add(c);
         }
         for (Character aCharsList : charsList) {
@@ -36,10 +38,35 @@ public class StringUtils {
         return flag;}
 
 
-    public void leftCutRightPad(String string){}
-    public void flipWordsInString(String string){}
-    public void flipWordsInSentence(String string){}
-    public boolean isABCcontains(String string){return true;}
+    public static String leftCutRightPad(String string){
+        String result="";
+        result = string.length() > 10 ? string.substring(0, 5) : String.format("%-12s", string).replace(' ', '0');
+        return result;
+    }
+
+
+    public static String flipWordsInString(String string){
+        List<String> list = new ArrayList<>();
+        String result="";
+        String[] words=string.split("\\s");
+        Collections.addAll(list, words);
+        for (int i = 0; i <list.size() ; i++) {
+            String start=list.get(0);
+            String end=list.get(list.size()-1);
+            list.set(0,end);
+            list.set(list.size()-1,start);
+        }
+        result = list.toString();
+        return result;
+    }
+
+
+    public static void flipWordsInSentence(String string){}
+
+
+    public static boolean isABCcontains(String string){
+        return Pattern.matches("\\S[abc]",string);
+    }
     public boolean isFormatMMDDYYYY(String string){return false;}
     public boolean isAddress(String string){return true;}
     public int[] findTelephoneNumbers(String string) {
@@ -47,10 +74,12 @@ public class StringUtils {
         return array;}
 
     public static void main(String[] args) {
-        String toTest="!hcuo";
-
-
+        String toTest="noitca ni gnireenigne esreveR";
+        String toTest2="1";
+     /*   System.out.println(flipWordsInString("Word with spaces"));
+        System.out.println(leftCutRightPad(toTest2));
         System.out.println( flipString(toTest));
-        System.out.println(isStringPalindrome("А роза упала на лапу Азора"));
+        System.out.println(isStringPalindrome(""));*/
+        System.out.println(isABCcontains("a b"));
     }
 }
