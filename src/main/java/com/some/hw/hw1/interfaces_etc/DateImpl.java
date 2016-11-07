@@ -4,7 +4,7 @@ package com.some.hw.hw1.interfaces_etc;
  * Created by User on 10/30/2016.
  */
 public class DateImpl implements Date {
-    private final static DateImpl dateImpl=new DateImpl(31,12,2006);
+    private final static DateImpl dateImpl = new DateImpl(31, 12, 2006);
     private Day day;
     private Month month;
     private Year year;
@@ -21,16 +21,12 @@ public class DateImpl implements Date {
         return year;
     }
 
-    public boolean leapYear(){
-        return year.isLeapYear();
-    }
-
-    //@TODO Get logic together
-    public DateImpl(int day, int month, int year){
+    public DateImpl(int day, int month, int year) {
         this.day = new Day(day);
         this.month = new Month(month);
         this.year = new Year(year);
     }
+
     @Override
     public String toString() {
         return "DateImpl{" +
@@ -43,56 +39,55 @@ public class DateImpl implements Date {
     @Override
     public int getDayOfYear() {
         int count = 0;
-        for (int i = 1; i <month.getMonth(); i++) {
+        for (int i = 1; i < month.getMonth(); i++) {
             Month month = new Month(i);
-            count+=month.getDays(year.isLeapYear());
+            count += month.getDays(year.isLeapYear());
         }
-        count=count+day.getDay();
+        count = count + day.getDay();
         return count;
     }
 
     @Override
     public int daysBetween(DateImpl date) {
-        int diff=0;
-        int yeardiff=(Math.abs((date.getYear().getYear()- this.getYear().getYear())))-1;
-        int leapcount=0;
-        int max=Math.max(date.getYear().getYear(), this.getYear().getYear());
+        int diff = 0;
+        int yeardiff = (Math.abs((date.getYear().getYear() - this.getYear().getYear()))) - 1;
+        int leapcount = 0;
+        int max = Math.max(date.getYear().getYear(), this.getYear().getYear());
         int min = Math.min(date.getYear().getYear(), this.getYear().getYear());
 
-        int days_count=0;
-        if (yeardiff>0) {
-            for(int i=min; i<max; i++ ){
-                if(new Year(i).isLeapYear()){leapcount++;}
+        int days_count = 0;
+        if (yeardiff > 0) {
+            for (int i = min; i < max; i++) {
+                if (new Year(i).isLeapYear()) {
+                    leapcount++;
+                }
             }
 
             if (this.getYear().isLeapYear()) {
-                days_count = (366*yeardiff);
+                days_count = (366 * yeardiff);
             } else {
-                days_count = (365*yeardiff);
+                days_count = (365 * yeardiff);
             }
-            int o =this.getDayOfYear();
-            int a=(days_count+o);
-            int b=date.getDayOfYear();
-            diff=Math.abs((a+leapcount)+(365-b));
+            int o = this.getDayOfYear();
+            int a = (days_count + o);
+            int b = date.getDayOfYear();
+            diff = Math.abs((a + leapcount) + (365 - b));
 
+        } else {
+            diff = Math.abs(date.getDayOfYear() - this.getDayOfYear());
         }
-            else{diff=Math.abs(date.getDayOfYear() - this.getDayOfYear());}
         return diff;
     }
 
     @Override
     public DayOfWeek getDayOfWeek() {
         System.out.println("Between: " + this.daysBetween(dateImpl));
-        return DayOfWeek.valueOf(this.daysBetween(dateImpl)%7-1);
+        return DayOfWeek.valueOf(this.daysBetween(dateImpl) % 7 - 1);
     }
 
-    static class Year{
+    static class Year {
         public int getYear() {
             return year;
-        }
-
-        public void setYear(int year) {
-            this.year = year;
         }
 
         public Year(int year) {
@@ -101,8 +96,8 @@ public class DateImpl implements Date {
 
         int year;
 
-        public boolean isLeapYear(){
-            return ((year % 4 == 0&&year%100!=0)||(year%400==0));
+        public boolean isLeapYear() {
+            return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
         }
     }
 
@@ -111,17 +106,13 @@ public class DateImpl implements Date {
             return month;
         }
 
-        public void setMonth(int month) {
-            this.month = month;
-        }
-
         public Month(int month) {
             this.month = month;
         }
 
         int month;
 
-        public int getDays( boolean isLeapYear) {
+        public int getDays(boolean isLeapYear) {
             switch (month) {
                 case 1:
                     return 31;
@@ -151,18 +142,15 @@ public class DateImpl implements Date {
                     return 30;
                 case 12:
                     return 31;
-                default: return 0;
+                default:
+                    return 0;
             }
         }
     }
 
-    static class Day{
+    static class Day {
         public int getDay() {
             return day;
-        }
-
-        public void setDay(int day) {
-            this.day = day;
         }
 
         public Day(int day) {

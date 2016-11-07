@@ -3,7 +3,7 @@ package com.some.practice.practice1;
 /**
  * Created by User on 11/2/2016.
  */
-public class Exam{
+public class Exam {
     private String discipline;
     private int grade;
 

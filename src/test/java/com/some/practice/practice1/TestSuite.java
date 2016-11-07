@@ -7,6 +7,6 @@ import org.junit.runners.Suite;
  * Created by User on 11/1/2016.
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ArrayProdTest.class,ArraySumTest.class})
+@Suite.SuiteClasses({ArrayProdTest.class, ArraySumTest.class})
 public class TestSuite {
 }

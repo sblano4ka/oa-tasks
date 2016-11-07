@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ArrayProdTest{
-    static int [] array;
+public class ArrayProdTest {
+    static int[] array;
 
     @BeforeClass
     public static void setUp() throws Exception {
-        array = new int[]{1,2,3,4,5,6};
-       // System.out.println("setting up");
+        array = new int[]{1, 2, 3, 4, 5, 6};
+        // System.out.println("setting up");
     }
 
     @AfterClass
@@ -22,9 +22,9 @@ public class ArrayProdTest{
     @Test
     public void testProd() throws Exception {
 
-        int actual =0;
-        for(int j: array){
-            actual*=j;
+        int actual = 0;
+        for (int j : array) {
+            actual *= j;
         }
         int expected = ArrayProd.prod(array);
         Assert.assertEquals(actual, expected);

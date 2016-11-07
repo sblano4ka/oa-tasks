@@ -9,25 +9,27 @@ public enum DayOfWeek {
     DayOfWeek(int index) {
         this.index = index;
     }
+
     private int index;
 
-    public static DayOfWeek valueOf (int index){
-        switch (index){
-        case 0: return MONDAY;
-            case 1: return TUESDAY;
-            case 2: return WEDNESDAY;
-            case 3: return THURSDAY;
-            case 4: return FRIDAY;
-            case 5: return SATURDAY;
-            case 6: return SUNDAY;
-            default: throw new IllegalArgumentException("Day number should be in range of 0-6");
+    public static DayOfWeek valueOf(int index) {
+        switch (index) {
+            case 0:
+                return MONDAY;
+            case 1:
+                return TUESDAY;
+            case 2:
+                return WEDNESDAY;
+            case 3:
+                return THURSDAY;
+            case 4:
+                return FRIDAY;
+            case 5:
+                return SATURDAY;
+            case 6:
+                return SUNDAY;
+            default:
+                throw new IllegalArgumentException("Day number should be in range of 0-6");
         }
     }
-
-    public int getIndex() {
-        return this.index;
-    }
-
-
-
 }

@@ -3,15 +3,15 @@ package com.some.practice.practice1;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
-public class ArraySumTest  {
+public class ArraySumTest {
 
-    static int [] array;
+    static int[] array;
     static ArraySum arraySum;
 
     @BeforeClass
     public static void setUpFixture() throws Exception {
-        array = new int[]{1,2,3,4,5,6};
-       arraySum = new ArraySum(array);
+        array = new int[]{1, 2, 3, 4, 5, 6};
+        arraySum = new ArraySum(array);
     }
 
     @AfterClass
@@ -23,9 +23,9 @@ public class ArraySumTest  {
     @Test
     public void testSum() throws Exception {
 
-        int actual =0;
-        for(int j: array){
-            actual+=j;
+        int actual = 0;
+        for (int j : array) {
+            actual += j;
         }
         int expected = ArraySum.sum(array);
         Assert.assertEquals(actual, expected);
@@ -33,7 +33,7 @@ public class ArraySumTest  {
 
     @Test(expected = NullPointerException.class)
     public void testNullInSum() {
-            ArraySum.sum(null);
+        ArraySum.sum(null);
     }
 
     @Rule
